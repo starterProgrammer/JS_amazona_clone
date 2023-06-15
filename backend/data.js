@@ -7,8 +7,8 @@ export default {
             image: 'images/product-1.jpg',
             price: 49,
             brand: 'nike',
-            rating: 4.5,
-            numberReviews: 10,
+            rating: 2.5,
+            numberReviews: 20,
             countInStock: 10,
         },
         {
