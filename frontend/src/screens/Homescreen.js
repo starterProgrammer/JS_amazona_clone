@@ -1,25 +1,11 @@
+/* eslint-disable prefer-template */
 import Rating from '../components/Rating';
+import api from '../tools/api';
 
 const Homescreen = {
     render: async () => {
         // Load Data
-        let products;
-
-        try {
-            const response = await fetch('http://localhost:3000/api/products', {
-                headers: {
-                    'Content-type': 'application/json',
-                },
-            })
-
-            if (!response.ok || response.status !== 200) {
-                return '<h1>Error in getting data</h1>'
-            }
-            products = await response.json()
-        } catch (err) {
-            console.error(err);
-        }
-
+        const products = await api.getProducts()
 
         return `
             <ul class="products">
@@ -32,7 +18,7 @@ const Homescreen = {
                             <a href="/#/product/1" class="details">
                                 <span>${product.name}</span>
                                 <span>${product.brand}</span>
-                                <span>${Rating.render({ value: product.rating, text: `${product.numberReviews} reviews` })}</span>
+                                <span>${Rating.render({ value: product.rating, text: product.numberReviews + 'reviews' })}</span>
                                 <span>${product.price} $</span>
                             </a>
                         </div>

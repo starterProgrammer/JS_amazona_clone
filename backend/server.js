@@ -15,6 +15,11 @@ app.get('/api/products', (req, res) => {
   res.send(data.products)
 })
 
+app.get('/api/product/:id', (req, res) => {
+  const { id } = req.params
+  const findItem = data.products.find((item) => item._id === id)
+  res.send(findItem)
+})
 
 
 app.listen(3000, () => console.log('server is running on http://localhost:3000'));
