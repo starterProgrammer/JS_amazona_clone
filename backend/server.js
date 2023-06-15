@@ -1,6 +1,7 @@
-const express = require('express')
-const cors = require('cors')
-const { products } = require('./data.js')
+// Convert Common Js to EcmaScript
+import express from 'express'
+import cors from 'cors'
+import data from './data.js'
 
 const app = express()
 
@@ -9,7 +10,7 @@ app.use(cors())
 
 
 app.get('/api/products', (req, res) => {
-    res.send(products)
+    res.send(data.products)
 })
 
 
