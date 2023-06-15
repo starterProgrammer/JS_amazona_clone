@@ -14,5 +14,8 @@ module.exports = {
     semi: 0,
     'no-multiple-empty-lines': 0,
     indent: 0,
+    'import/prefer-default-export': 0,
+    'no-underscore-dangle': 0,
   },
 }
+

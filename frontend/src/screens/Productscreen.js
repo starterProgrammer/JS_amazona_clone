@@ -1,7 +1,5 @@
 const Productscreen = {
-    render:()=>{
-        return `<h1>product page</h1>`
-    }
+    render: () => '<h1>product page</h1>',
 }
 
 

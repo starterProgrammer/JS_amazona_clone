@@ -1,21 +1,19 @@
 const Homescreen = {
     render: async () => {
-
-        // Load Data 
+        // Load Data
         let products;
 
         try {
             const response = await fetch('http://localhost:3000/api/products', {
                 headers: {
-                    'Content-type': 'application/json'
-                }
+                    'Content-type': 'application/json',
+                },
             })
 
-            if (!response.ok || response.status != 200) {
-                return `<h1>Error in getting data</h1>`
+            if (!response.ok || response.status !== 200) {
+                return '<h1>Error in getting data</h1>'
             }
             products = await response.json()
-
         } catch (err) {
             console.error(err);
         }
@@ -23,10 +21,10 @@ const Homescreen = {
 
         return `
             <ul class="products">
-                    ${products.map(product => `
+                    ${products.map((product) => `
                     <li>
                         <div class="product">
-                            <a href='/#/product/${product._id}'>
+                            <a href="/#/product/${product._id}">
                                 <img src="${product.image}">
                             </a>
                             <a href="/#/product/1" class="details">
@@ -39,7 +37,7 @@ const Homescreen = {
                     `).join('\n')}
             </ul>
         `
-    }
+    },
 }
 
 export default Homescreen
